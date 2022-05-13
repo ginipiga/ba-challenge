@@ -1,15 +1,21 @@
-// <⚠️ DONT DELETE THIS ⚠️>
-import "src/styles.css";
-const colors = ["#1abc9c", "#3498db", "#9b59b6", "#f39c12", "#e74c3c"];
-// <⚠️ /DONT DELETE THIS ⚠️>
+const h = document.createElement("h2");
+h.innerText="hello";
+const body = document.body;
+body.appendChild(h);
+const BClist= body.classList;
+BClist.add("yellow");
+function resize(){
+    const innerwidth = window.innerWidth;
+    
+    if(innerwidth<500){
+        BClist.replace(BClist,"tomato");
+    }else if(innerwidth<900)  {
+        BClist.replace(BClist,"blue");
+    }else if(innerwidth<1200){
+        BClist.replace(BClist,"green");
+    }else{
+        BClist.replace(BClist,"greenyello");
+    }
+}
+window.addEventListener("resize",resize);
 
-/*
-✅ The text of the title should change when the mouse is on top of it.
-✅ The text of the title should change when the mouse is leaves it.
-✅ When the window is resized the title should change.
-✅ On right click the title should also change.
-✅ The colors of the title should come from a color from the colors array.
-✅ DO NOT CHANGE .css, or .html files.
-✅ ALL function handlers should be INSIDE of "superEventHandler"
-*/
-const superEventHandler = {};

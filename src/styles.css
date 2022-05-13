@@ -1,4 +1,18 @@
 body {
     font-family: sans-serif;
   }
-  
+.tomato{
+  background-color: tomato;
+}
+.blue{
+  background-color: blue;
+}
+.green{
+  background-color: green;
+}
+.greenyello{
+  background-color: greenyellow;
+}
+.yello{
+  background-color: yellow;
+}
