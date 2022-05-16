@@ -1,21 +1,34 @@
-const h = document.createElement("h2");
-h.innerText="hello";
-const body = document.body;
-body.appendChild(h);
-const BClist= body.classList;
-BClist.add("yellow");
-function resize(){
-    const innerwidth = window.innerWidth;
-    
-    if(innerwidth<500){
-        BClist.replace(BClist,"tomato");
-    }else if(innerwidth<900)  {
-        BClist.replace(BClist,"blue");
-    }else if(innerwidth<1200){
-        BClist.replace(BClist,"green");
-    }else{
-        BClist.replace(BClist,"greenyello");
+const GenNum = document.querySelector(".GenerateNum input");
+const GueNum = document.querySelector(".GuessNum input");
+const Maxvalue=GenNum.value;
+const GBtn = document.querySelector(".GuessNum button");
+const Youchose=document.querySelector(".YouChose");
+const Result=document.querySelector(".result");
+function maxvalue(event){
+    event.preventDefault();
+    const Guevalue = GueNum.value;
+    const Maxvalue=GenNum.value;
+    if(Guevalue <= 0){
+        alert("양수 정수값을 입력하시오.");
+    }
+    else if(Maxvalue < Guevalue){
+        alert(`${Maxvalue} 보다 작은값을 입력하시오.`);
+    }
+    else{
+        GueNum.setAttribute('max', Maxvalue);
     }
 }
-window.addEventListener("resize",resize);
 
+function GamePlay(){
+    const GueValue = GueNum.value;
+    const Maxvalue=GenNum.value;
+    const randomValue = Math.ceil(Math.random()*(Maxvalue));
+    Youchose.innerText=`You chose: ${GueValue}, the machine chose: ${randomValue}`;
+    if(GueValue == randomValue){
+        Result.innerText="You won!"
+    }else{
+        Result.innerText="You lost!"
+    }
+}
+GueNum.addEventListener("input",maxvalue);
+GBtn.addEventListener("click",GamePlay);
